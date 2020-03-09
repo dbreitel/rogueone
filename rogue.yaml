@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rogueone
+  namespace: apps
+  labels:
+    run: rogueone
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    run: rogueone
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rogueone
+  namespace: apps
+  labels:
+    run: rogueone
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: rogueone
+  template:
+    metadata:
+      labels:
+        run: rogueone
+    spec:
+      containers:
+      - name: rogueone
+        image: diegob/rogueone:1
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
