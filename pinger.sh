@@ -1,5 +1,5 @@
 #!/bin/sh
-wget http://aquasec.com
+wget  http://www.apple.com/
 sleep 10
 wget http://my-nginx
 sleep 10
