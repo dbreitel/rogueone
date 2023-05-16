@@ -1,4 +1,4 @@
-FROM nginx:1.16
+FROM nginx:1.24
 COPY ./runner.sh /etc/runner.sh
 COPY ./pinger.sh /etc/pinger.sh
 RUN chmod 777 /etc/pinger.sh
